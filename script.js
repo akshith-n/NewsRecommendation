@@ -1,13 +1,15 @@
 let articles = [];
 let liked_content = [];
 
+const BACKEND_URL = "https://newsrecommendation.onrender.com"; // Your Render backend URL
+
 async function getmore() {
     const dp = document.getElementById("more");
     dp.style.backgroundColor = dp.style.backgroundColor === "red" ? "black" : "red";
 
     try {
         // Fetch recommendation data based on liked content
-        const response = await fetch('http://127.0.0.1:5002/recommend', {
+        const response = await fetch(`${BACKEND_URL}/recommend`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -32,7 +34,7 @@ async function getmore() {
                 newsContainer.appendChild(articleElement);
             }
         });
-        recommended_articles.length=0;
+        recommended_articles.length = 0;
 
     } catch (error) {
         console.error('There has been a problem with your fetch operation:', error);
@@ -42,7 +44,7 @@ async function getmore() {
 async function fetchData() {
     try {
         // Fetch initial data from the server
-        const response = await fetch('http://127.0.0.1:5002/');
+        const response = await fetch(`${BACKEND_URL}/`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
