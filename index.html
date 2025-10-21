@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Responsive News Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    /* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+header {
+    background: #007BFF;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffecd2;
+}
+
+main {
+    padding: 20px;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+article:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.article-content {
+    margin-bottom: 10px;
+}
+
+button {
+    align-self: flex-start;
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+#id{
+    margin: 100px;;
+    margin-bottom: 30px ;
+    padding: 30px;
+}
+footer {
+    background: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+}
+
+footer p {
+    margin: 0;
+}
+
+</style>
+<script src="script.js">
+</script>
+<body>
+    <div class="container">
+        <header>
+            <h1>Latest News</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">World</a></li>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Entertainment</a></li>
+                    <li><a href="#">Sports</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="news-container">
+           
+        </main>
+        <button id="more" onclick="getmore()" style="background:black; margin-left:80%; margin-bottom:3%;">More News</button>
+        <footer>
+            <p>&copy; 2024 News Portal. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
