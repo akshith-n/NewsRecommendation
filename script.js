@@ -2,7 +2,7 @@ let articles = [];
 let liked_content = [];
 
 const BACKEND_URL = "https://newsrecommendation-2.onrender.com";
-L
+
 
 async function getmore() {
     const dp = document.getElementById("more");
