@@ -7,7 +7,7 @@ import requests
 from bs4 import BeautifulSoup
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app, origins=["https://newsrecommendation-3.onrender.com"])   # Enable CORS for all routes
 
 def recommend(liked_news, lst):
     tfidf_vectorizer = TfidfVectorizer(stop_words='english')
@@ -22,16 +22,22 @@ def recommend(liked_news, lst):
 @app.route('/recommend', methods=['POST'])
 def recommend_articles():
     data = request.json
-    print("dta using post"+str(data))
+    print("Data received from frontend:", data)
     liked_news = data.get('liked_news', [])
 
+    # If no liked articles provided
     if not liked_news:
         return jsonify({"error": "No liked news articles provided"}), 400
+
+    # 🧠 Prevent crash if lst isn't initialized yet
+    if 'lst' not in globals() or not lst:
+        return jsonify({"error": "News list not yet generated. Please refresh the page and try again."}), 400
 
     # Generate recommendations
     recommendations = recommend(liked_news, lst)
 
     return jsonify({"recommended_articles": recommendations})
+
 
 @app.route('/', methods=['GET'])
 def scrape():
